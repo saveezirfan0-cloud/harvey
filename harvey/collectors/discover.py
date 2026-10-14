@@ -487,6 +487,9 @@ class OpenStreetMap(DiscoveryProvider):
 
     # A friendly term maps to the OSM tags that actually carry those businesses.
     TAG_MAP = {
+        # Before "electric", so "solar electricians" means installers.
+        "solar": ['craft=photovoltaic'],
+        "photovoltaic": ['craft=photovoltaic'],
         "roof": ['craft=roofer', 'shop=roofing'],
         "plumb": ['craft=plumber'],
         "hvac": ['craft=hvac'],
@@ -496,6 +499,11 @@ class OpenStreetMap(DiscoveryProvider):
         "attorney": ['office=lawyer'],
         "contractor": ['craft=builder', 'office=construction_company'],
         "landscap": ['craft=gardener', 'shop=garden_centre'],
+        "account": ['office=accountant'],
+        "bookkeep": ['office=accountant'],
+        "property manag": ['office=property_management', 'office=estate_agent'],
+        "letting": ['office=property_management', 'office=estate_agent'],
+        "estate agent": ['office=estate_agent'],
     }
 
     def _tags(self, term: str) -> list[str]:
