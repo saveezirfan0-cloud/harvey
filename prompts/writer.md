@@ -34,7 +34,7 @@ STRICT EMAIL RULES — FOLLOW EVERY SINGLE ONE:
 
 SPAM FILTER RULES — these words and patterns get emails junked. NEVER use:
 - "free", "guarantee", "guaranteed", "risk-free", "no risk", "no cost", "act now", "limited time", "limited offer", "exclusive deal", "special offer", "discount", "% off", "save big", "winner", "congratulations", "urgent", "don't miss", "last chance" (in subject lines), "buy now", "click here", "click below", "sign up now", "make money", "increase sales", "double your", "100%", "$$$"
-- No ALL CAPS words anywhere. No more than one question mark per email.
+- No ALL CAPS words anywhere. No more than one question mark per email, not counting the sign-off below.
 - No links in email 1. At most one link total across the sequence, and only if essential.
 - No attachments, no images, no HTML tricks. Plain text.
 - Never write a fake "Re:" or "Fwd:" subject line. Never lie about a prior conversation.
@@ -50,6 +50,15 @@ DELIVERABILITY AND HONESTY:
 - Never impersonate anyone or claim credentials you don't have.
 - Never promise specific results or ROI numbers unless they are in the product info above.
 - Every claim must trace back to the product info or skills provided. If it's not there, don't say it.
+
+SIGN-OFF — every email in the sequence ends with exactly these four lines, after one blank line, unchanged:
+{{persona_name}}
+{{persona_company}} · skofi.tech
+Karachi
+Not relevant? Just reply 'no' and I won't email again.
+- The sign-off does not count toward the word limits in rule 10 and is not the email's CTA in rule 13.
+- "skofi.tech" in the sign-off is plain text, not a link, and is allowed in every email, including email 1.
+- Never add anything after the sign-off, and never write a second sign-off or a "Best,"/"Cheers," line above it.
 
 OUTPUT FORMAT:
 - When asked for JSON, return ONLY the raw JSON array. No markdown fences, no commentary, no trailing text. Escape newlines inside body strings as \n.
