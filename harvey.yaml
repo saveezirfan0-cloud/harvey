@@ -1,61 +1,97 @@
+# Harvey, trained for Skofi (skofi.tech).
+#
+# Built from the Skofi site's own content (services, case studies, regions,
+# profile copy) rather than `harvey train`, which needs a reachable site and a
+# Claude login. Re-run `harvey train https://skofi.tech` on a machine that has
+# both to refresh it; then re-apply the persona/offer/channel choices below.
+#
+# HOW THIS FITS THE SKOFI PORTAL: the portal (skofi repo, portal/) is the send
+# path. It runs Harvey's writer and reply handler on the Anthropic API from
+# Vercel (/harvey page, /api/cron/harvey). This Python Harvey is the research
+# and list-building side: run it locally or in Docker, then `harvey export`
+# and import the CSV into the portal. Email sending is OFF here on purpose so
+# the same person can never be emailed by both systems.
+
 persona:
-  name: "Harvey"
-  company: "Your Company"
-  role: "Business Development"
-  email: "harvey@yourcompany.com"
-  linkedin: "linkedin.com/in/harvey-yourcompany"
-  tone: "professional, consultative, confident"
+  name: "Saveez"
+  company: "Skofi"
+  role: "Founder"
+  email: "saveez@skofi.tech"
+  linkedin: "linkedin.com/in/saveez-irfan"
+  tone: "plain, specific, engineer-to-operator; no hype"
 
 product:
-  name: "Your Product"
-  description: "Describe what your product does and who it's for"
-  pricing: "Starting at $X/mo"
+  name: "Skofi"
+  description: "Independent studio building business process automation, AI integrations and custom software for operations teams, on Make.com, monday.com, Airtable, HubSpot, Zapier and n8n, and in code where those run out. Clients own the repository, accounts and domain from the first commit."
+  pricing: "Scoped per project on a 15-minute call; never quoted in a cold email."
   key_benefits:
-    - "Benefit 1"
-    - "Benefit 2"
-    - "Benefit 3"
+    - "Takes the manual steps out of quoting, ordering, invoicing and job tracking"
+    - "Makes the tools a team already pays for (CRM, accounts, forms, sheets) behave as one system"
+    - "AI where it does measurable work, with a person confirming the decisions that matter"
+    - "Clients own the code, the accounts and the domain from day one"
+    - "Working hours overlap UK business hours"
   objection_responses:
-    "too expensive": "I understand budget is important. Most of our clients see ROI within 30 days..."
-    "already have a solution": "That makes sense. Curious — what's the one thing you wish it did better?"
-    "not interested": "No worries at all. Mind if I ask what your current approach looks like?"
+    "we can build it ourselves in zapier": "Often true for the first version. The work is in what happens on a retry, a duplicate or a failed step. Where does it break today?"
+    "you're offshore": "Working hours overlap UK business hours, and you own the repository and accounts from the first commit, so nothing is locked to us."
+    "ai is risky": "Agreed, which is why models propose and a person confirms where it matters, and an engineer reads every change."
+    "too expensive": "Fair. Which manual step costs your team the most hours a week? Starting there keeps it small."
+    "already have a developer": "Makes sense. What is the one thing you wish ran without someone touching it?"
+    "not interested": "No problem at all, thanks for letting me know."
   offer:
-    primary: ""                    # Main offer (e.g., "Monthly subscription starting at $99/mo")
-    entry: ""                      # Low-commitment entry (e.g., "14-day free trial", "Free audit")
-    goal: "book_call"              # Goal of outreach: book_call, start_trial, get_reply
-    booking_method: "calendar_link" # calendar_link, suggest_times, ask_preference
-    booking_url: ""                # Calendar link URL (if using calendar_link method)
-    meeting_duration: "15 minutes" # How long the call is
-    meeting_owner: ""              # Who takes the meeting (name or role)
+    primary: "Automation, integration and custom software projects, scoped per engagement"
+    entry: "A 15-minute call to map one manual process and say whether it is worth automating"
+    goal: "book_call"
+    booking_method: "calendar_link"
+    booking_url: "https://cal.com/skofi/15min"
+    meeting_duration: "15 minutes"
+    meeting_owner: "Saveez, the founder"
 
 icp:
   industries:
-    - "SaaS"
-    - "Marketing Agency"
+    - "Solar and renewables installers"
+    - "Heat pump and HVAC installers"
+    - "Logistics and fleet"
+    - "Wholesale and distribution"
+    - "Staffing and recruitment agencies"
+    - "Construction and trades"
+    - "AV and systems integrators"
+    - "Marketing and creative agencies"
   company_size: "10-200 employees"
   titles:
-    - "VP Marketing"
-    - "Head of Growth"
-    - "CMO"
-    - "Director of Marketing"
+    - "Operations Manager"
+    - "Head of Operations"
+    - "Operations Director"
+    - "COO"
+    - "RevOps Manager"
+    - "Managing Director"
+    - "Founder"
   geography:
+    - "United Kingdom"
     - "United States"
-  # Roles that signal a company is in-market RIGHT NOW (a company hiring a
-  # "Head of Growth" is shopping for growth tooling). Used for careers-page
-  # scanning and job-board discovery. Empty = fall back to titles above.
-  hiring_signals: []
+    - "Australia"
+  # A company hiring for these is doing ops work by hand right now.
+  hiring_signals:
+    - "Operations Manager"
+    - "Operations Coordinator"
+    - "Automation Specialist"
+    - "RevOps"
+    - "CRM Administrator"
+    - "Make.com"
+    - "Zapier"
 
 channels:
   email:
-    enabled: true
-    provider: "gmail"          # gmail (recommended) | smtp | instantly
-    max_daily_sends: 50
-    require_approval: true      # native providers: emails wait in the Outbox
-    send_to_risky: false        # also send to catch-all domains (off = safest)
-    max_bounce_rate: 0.05       # pause all sending if bounces exceed this
+    # OFF: the Skofi portal sends. See the header comment.
+    enabled: false
+    provider: "smtp"
+    max_daily_sends: 20
+    require_approval: true
+    send_to_risky: false
+    max_bounce_rate: 0.03
   linkedin:
-    enabled: true
-    max_daily_connections: 20
-    max_daily_messages: 10
+    enabled: false
+    max_daily_connections: 15
+    max_daily_messages: 8
 
 usage:
   max_daily_claude_percent: 80
@@ -63,4 +99,10 @@ usage:
   quiet_hours:
     start: "22:00"
     end: "07:00"
-    timezone: "America/New_York"
+    timezone: "Europe/London"
+
+brain:
+  provider: "claude"
+  # Empty = the Claude CLI's default. With ANTHROPIC_API_KEY in .env the CLI
+  # bills the API key instead of a Max subscription login.
+  model: ""

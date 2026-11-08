@@ -53,6 +53,17 @@ FINGERPRINTS: dict[str, list[str]] = {
     "Tidio": [r"code\.tidio\.co"],
     "LiveChat": [r"cdn\.livechatinc\.com"],
 
+    # No-code ops stack: the strongest buying signal for automation work.
+    # Only what a public page can show: embedded forms, views and widgets.
+    "Airtable": [r"airtable\.com/embed", r"airtable\.com/shr", r"airtable\.com/app[A-Za-z0-9]{14}"],
+    "monday.com": [r"forms\.monday\.com", r"view\.monday\.com", r"wkf\.ms/"],
+    "Zapier": [r"zapier\.com/hooks", r"interfaces\.zapier\.com", r"\.zapier\.app"],
+    "Make": [r"hook\.(?:eu|us)\d\.make\.com", r"hook\.integromat\.com"],
+    "n8n": [r"\.app\.n8n\.cloud"],
+    "Jotform": [r"form\.jotform\.com", r"cdn\.jotfor\.ms"],
+    "Tally": [r"tally\.so/(?:r|embed)/"],
+    "Softr": [r"softr\.app", r"assets\.softr-files\.com"],
+
     # Scheduling / payments
     "Calendly": [r"assets\.calendly\.com", r"calendly\.com/[\w\-]+/"],
     "Stripe": [r"js\.stripe\.com"],
