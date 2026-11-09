@@ -54,6 +54,14 @@ timeline in writing.
 Operations teams at 10-200 person companies in the UK, US and Australia whose
 quotes, orders, invoices or jobs move between several tools by hand.
 
+## Two buyer segments: lead with the services that fit
+| Segment | Buyers | Lead with |
+|---|---|---|
+| Operations-heavy businesses (installers, trades, logistics, staffing, distribution, agencies) | Operations leads, COOs, MDs, founders | Process automation, workflow automation, ops platforms and CRM, systems integration |
+| Software and AI startups | Founders, CEOs, CTOs, engineering leads | AI integration, Claude Code development, vibe-coded app rescue, MCP servers, custom software |
+
+Never send an ops-automation pitch to a software startup, or an engineering pitch to a trades business.
+
 ## Ideal Buyer Persona
 Operations Manager, Head of Operations, COO, RevOps, or the founder/MD at a
 company small enough that ops is still someone's evenings.

@@ -56,6 +56,7 @@ icp:
     - "Construction and trades"
     - "AV and systems integrators"
     - "Marketing and creative agencies"
+    - "Software and AI startups (AI integration, Claude Code, MCP servers, app hardening)"
   company_size: "10-200 employees"
   titles:
     - "Operations Manager"
@@ -65,6 +66,8 @@ icp:
     - "RevOps Manager"
     - "Managing Director"
     - "Founder"
+    - "CTO"
+    - "VP Engineering"
   geography:
     - "United Kingdom"
     - "United States"
